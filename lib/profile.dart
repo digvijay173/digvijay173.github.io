@@ -3,6 +3,7 @@ import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+
 import 'package:portfolio/responsive.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -59,6 +60,10 @@ class ProfilePage extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
                   ProfileInfo(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                  ),
+                  Languages(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.2,
                   ),
@@ -133,10 +138,7 @@ class NavButton extends StatelessWidget {
   final Color color;
 
   const NavButton(
-      {Key key,
-      @required this.text,
-      @required this.onPressed,
-      this.color = Colors.orange})
+      {Key key, this.text, this.onPressed, this.color = Colors.orange})
       : super(key: key);
 
   @override
@@ -182,7 +184,7 @@ class ProfileInfo extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       Text(
-        "Hey there! My name is",
+        "Hey there! I'm ",
         textScaleFactor: 2,
         style: TextStyle(color: Colors.black),
       ),
@@ -239,18 +241,6 @@ class ProfileInfo extends StatelessWidget {
           )
         ],
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Image.asset("assets/c.png", scale: 1.5),
-          Image.asset("assets/c++.png", scale: 1.5),
-          Image.asset("assets/java.png", scale: 1.5),
-          Image.asset("assets/python.png", scale: 1.5),
-          Image.asset("assets/flutter.png", scale: 1.5),
-          Image.asset("assets/html.png", scale: 1.5),
-          Image.asset("assets/vscode.png", scale: 1.5),
-        ],
-      )
     ],
   );
 
@@ -260,7 +250,10 @@ class ProfileInfo extends StatelessWidget {
       largeScreen: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[profileImage(context), profileData],
+        children: <Widget>[
+          profileImage(context),
+          profileData,
+        ],
       ),
       smallScreen: Column(
         mainAxisSize: MainAxisSize.max,
@@ -270,7 +263,7 @@ class ProfileInfo extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
           ),
-          profileData
+          profileData,
         ],
       ),
     );
@@ -354,6 +347,93 @@ class SocialInfo extends StatelessWidget {
         children: <Widget>[
           ...socialMediaWidgets(),
           copyRightText(),
+        ],
+      ),
+    );
+  }
+}
+
+class Languages extends StatelessWidget {
+  final List<Image> images = [
+    Image.asset("assets/c.png"),
+    Image.asset("assets/c++.png"),
+    Image.asset("assets/java.png"),
+    Image.asset("assets/python.png"),
+    Image.asset("assets/flutter.png"),
+    Image.asset("assets/html.png"),
+    Image.asset("assets/vscode.png"),
+  ];
+  languages(context) => Container(
+        height: ResponsiveWidget.isSmallScreen(context)
+            ? MediaQuery.of(context).size.height * 0.25
+            : MediaQuery.of(context).size.width * 0.25,
+        width: ResponsiveWidget.isSmallScreen(context)
+            ? MediaQuery.of(context).size.height * 0.25
+            : MediaQuery.of(context).size.width * 0.25,
+        child: Swiper(
+          itemBuilder: (BuildContext context, int index) {
+            return images[index];
+          },
+          itemCount: images.length,
+          itemWidth: 300.0,
+          itemHeight: 300.0,
+          layout: SwiperLayout.CUSTOM,
+          customLayoutOption:
+              new CustomLayoutOption(startIndex: -1, stateCount: 3)
+                  .addRotate([-45.0 / 180, 0.0, 45.0 / 180]).addTranslate([
+            new Offset(-370.0, -40.0),
+            new Offset(0.0, 0.0),
+            new Offset(370.0, -40.0)
+          ]),
+          autoplay: true,
+          autoplayDelay: 1500,
+        ),
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveWidget(
+      largeScreen: Padding(
+        padding: const EdgeInsets.fromLTRB(8, 8, 30, 8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Text(
+              "Profound in : \n",
+              softWrap: true,
+              textScaleFactor: 1.5,
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+            Image.asset("assets/c.png", scale: 1.3),
+            Image.asset("assets/c++.png", scale: 1.3),
+            Image.asset("assets/java.png", scale: 1.3),
+            Image.asset("assets/python.png", scale: 1.3),
+            Image.asset("assets/flutter.png", scale: 1.3),
+            Image.asset("assets/html.png", scale: 1.3),
+            Image.asset("assets/vscode.png", scale: 1.3),
+          ],
+        ),
+      ),
+      smallScreen: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                "Profound in : \n",
+                softWrap: true,
+                textScaleFactor: 1.5,
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[languages(context)],
+          ),
         ],
       ),
     );
