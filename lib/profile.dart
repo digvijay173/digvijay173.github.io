@@ -210,37 +210,37 @@ class ProfileInfo extends StatelessWidget {
       SizedBox(
         height: 20,
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          // RaisedButton(
-          //   shape: StadiumBorder(),
-          //   child: Text("Resume"),
-          //   color: Colors.red,
-          //   onPressed: () {
-          //     html.window.open(
-          //         "https://google-developers.appspot.com/community/experts/directory/profile/profile-pawan_kumar",
-          //         "GDE");
-          //   },
-          //   padding: EdgeInsets.all(10),
-          // ),
-          SizedBox(
-            width: 20,
-          ),
-          OutlineButton(
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
-            shape: StadiumBorder(),
-            child: Text("Say Hi!"),
-            color: Colors.red,
-            onPressed: () {
-              //html.window.open("https://pawan.live", "Pk");
-            },
-            padding: EdgeInsets.all(10),
-          )
-        ],
-      ),
+      // Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //   children: <Widget>[
+      //     // RaisedButton(
+      //     //   shape: StadiumBorder(),
+      //     //   child: Text("Resume"),
+      //     //   color: Colors.red,
+      //     //   onPressed: () {
+      //     //     html.window.open(
+      //     //         "https://google-developers.appspot.com/community/experts/directory/profile/profile-pawan_kumar",
+      //     //         "GDE");
+      //     //   },
+      //     //   padding: EdgeInsets.all(10),
+      //     // ),
+      //     SizedBox(
+      //       width: 20,
+      //     ),
+      //     OutlineButton(
+      //       borderSide: BorderSide(
+      //         color: Colors.red,
+      //       ),
+      //       shape: StadiumBorder(),
+      //       child: Text("Say Hi!"),
+      //       color: Colors.red,
+      //       onPressed: () {
+      //         //html.window.open("https://pawan.live", "Pk");
+      //       },
+      //       padding: EdgeInsets.all(10),
+      //     )
+      //   ],
+      // ),
     ],
   );
 
