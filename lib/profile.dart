@@ -163,7 +163,7 @@ class ProfileInfo extends StatelessWidget {
             ? MediaQuery.of(context).size.height * 0.25
             : MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
-          backgroundBlendMode: BlendMode.luminosity,
+          //backgroundBlendMode: BlendMode.luminosity,
           //borderRadius: BorderRadius.circular(40),
           shape: BoxShape.circle,
           boxShadow: [
@@ -210,37 +210,37 @@ class ProfileInfo extends StatelessWidget {
       SizedBox(
         height: 20,
       ),
-      // Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //   children: <Widget>[
-      //     // RaisedButton(
-      //     //   shape: StadiumBorder(),
-      //     //   child: Text("Resume"),
-      //     //   color: Colors.red,
-      //     //   onPressed: () {
-      //     //     html.window.open(
-      //     //         "https://google-developers.appspot.com/community/experts/directory/profile/profile-pawan_kumar",
-      //     //         "GDE");
-      //     //   },
-      //     //   padding: EdgeInsets.all(10),
-      //     // ),
-      //     SizedBox(
-      //       width: 20,
-      //     ),
-      //     OutlineButton(
-      //       borderSide: BorderSide(
-      //         color: Colors.red,
-      //       ),
-      //       shape: StadiumBorder(),
-      //       child: Text("Say Hi!"),
-      //       color: Colors.red,
-      //       onPressed: () {
-      //         //html.window.open("https://pawan.live", "Pk");
-      //       },
-      //       padding: EdgeInsets.all(10),
-      //     )
-      //   ],
-      // ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          // RaisedButton(
+          //   shape: StadiumBorder(),
+          //   child: Text("Resume"),
+          //   color: Colors.red,
+          //   onPressed: () {
+          //     html.window.open(
+          //         "https://google-developers.appspot.com/community/experts/directory/profile/profile-pawan_kumar",
+          //         "GDE");
+          //   },
+          //   padding: EdgeInsets.all(10),
+          // ),
+          SizedBox(
+            width: 20,
+          ),
+          OutlineButton(
+            borderSide: BorderSide(
+              color: Colors.red,
+            ),
+            shape: StadiumBorder(),
+            child: Text("Say Hi!"),
+            color: Colors.red,
+            onPressed: () {
+              //html.window.open("https://pawan.live", "Pk");
+            },
+            padding: EdgeInsets.all(10),
+          )
+        ],
+      ),
     ],
   );
 
